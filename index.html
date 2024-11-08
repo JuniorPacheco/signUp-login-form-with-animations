@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.jpg" type="image/x-icon" />
+    <title>Login UI</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              dmSans: ["DM Sans", "sans-serif"],
+            },
+            keyframes: {
+              "hidde-left": {
+                "0%": {
+                  left: "0%",
+                  opacity: "1",
+                },
+                "50%": {
+                  left: "-100%",
+                  opacity: "0",
+                },
+                "100%": {
+                  left: "-200%",
+                  opacity: "0",
+                },
+              },
+              "hidde-right": {
+                "0%": {
+                  left: "0%",
+                  opacity: "1",
+                },
+                "50%": {
+                  left: "100%",
+                  opacity: "0",
+                },
+                "100%": {
+                  left: "200%",
+                  opacity: "0",
+                },
+              },
+              "appear-left": {
+                "0%": {
+                  left: "-200%",
+                  opacity: "0",
+                },
+                "50%": {
+                  left: "-100%",
+                  opacity: "0",
+                },
+                "100%": {
+                  left: "0%",
+                  opacity: "1",
+                },
+              },
+              "appear-right": {
+                "0%": {
+                  left: "200%",
+                  opacity: "0",
+                },
+                "50%": {
+                  left: "100%",
+                  opacity: "0",
+                },
+                "100%": {
+                  left: "0%",
+                  opacity: "1",
+                },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-gray-100 font-dmSans flex font-semibold justify-center items-center h-screen"
+  >
+    <article
+      class="bg-white p-10 py-16 rounded-xl shadow-2xl grid grid-cols-[300px_300px] min-w-[800px] justify-between relative overflow-hidden"
+    >
+      <!-- Black Block -->
+      <div
+        class="absolute bottom-0 bg-black w-[200%] h-[200%] rotate-[57deg] left-[15%] transition-all duration-[1s] blackBlock"
+      ></div>
+
+      <!-- Login Form -->
+      <form class="grid gap-10 relative z-10 row-start-1 col-start-1 loginForm">
+        <h2
+          class="text-2xl font-bold after:block after:w-10 after:h-1 after:bg-black after:rounded-full after:mx-auto after:mt-1 text-center mb-2"
+        >
+          Login
+        </h2>
+
+        <fieldset
+          class="relative border-b-2 border-black pb-2 flex items-center"
+        >
+          <input
+            class="outline-none peer flex-1 bg-transparent"
+            type="text"
+            id="username"
+          />
+          <label
+            class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-blue-900/80 transition-all"
+            for="username"
+            >Username</label
+          >
+          <i class="bx bxs-user"></i>
+        </fieldset>
+
+        <fieldset
+          class="relative border-b-2 border-black pb-2 flex items-center"
+        >
+          <input
+            class="outline-none peer flex-1 bg-transparent"
+            type="password"
+            id="password"
+          />
+          <label
+            class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-blue-900/80 transition-all"
+            for="password"
+            >Password</label
+          >
+          <i class="bx bxs-lock-alt"></i>
+        </fieldset>
+
+        <button
+          class="bg-black rounded-full text-white py-2 hover:scale-105 transition-transform"
+        >
+          Login
+        </button>
+
+        <span class="font-normal">
+          Don't have an account?
+          <button type="button" class="font-bold signUpBtn">
+            Sign Up
+          </button></span
+        >
+      </form>
+
+      <!-- Right Text -->
+      <div
+        class="text-end max-w-[250px] ml-auto flex flex-col justify-center gap-4 text-white relative z-10 row-start-1 col-start-2 rightText"
+      >
+        <h3 class="text-4xl uppercase font-bold">Welcome Back!</h3>
+        <p class="max-w-[200px] ml-auto">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+          sapiente quisquam voluptatum labore, amet natus.
+        </p>
+      </div>
+
+      <!-- Left Text -->
+      <div
+        class="text-start max-w-[250px] mr-auto flex flex-col justify-center gap-4 text-white relative z-10 row-start-1 col-start-1 leftText invisible"
+      >
+        <h3 class="text-4xl uppercase font-bold">Welcome Back!</h3>
+        <p class="max-w-[200px] mr-auto">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+          sapiente quisquam voluptatum labore, amet natus.
+        </p>
+      </div>
+
+      <!-- Sign Up Form -->
+      <form
+        class="grid gap-10 relative z-10 row-start-1 col-start-2 signUpForm invisible"
+      >
+        <h2
+          class="text-2xl font-bold after:block after:w-10 after:h-1 after:bg-black after:rounded-full after:mx-auto after:mt-1 text-center mb-2"
+        >
+          Sign Up
+        </h2>
+
+        <fieldset
+          class="relative border-b-2 border-black pb-2 flex items-center"
+        >
+          <input
+            class="outline-none peer flex-1 bg-transparent"
+            type="text"
+            id="username"
+          />
+          <label
+            class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-blue-900/80 transition-all"
+            for="username"
+            >Username</label
+          >
+          <i class="bx bxs-user"></i>
+        </fieldset>
+
+        <fieldset
+          class="relative border-b-2 border-black pb-2 flex items-center"
+        >
+          <input
+            class="outline-none peer flex-1 bg-transparent"
+            type="email"
+            id="email"
+          />
+          <label
+            class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-blue-900/80 transition-all"
+            for="email"
+            >Email</label
+          >
+          <i class="bx bxs-user"></i>
+        </fieldset>
+
+        <fieldset
+          class="relative border-b-2 border-black pb-2 flex items-center"
+        >
+          <input
+            class="outline-none peer flex-1 bg-transparent"
+            type="password"
+            id="password"
+          />
+          <label
+            class="absolute left-0 peer-focus:-translate-y-6 peer-focus:text-blue-900/80 transition-all"
+            for="password"
+            >Password</label
+          >
+          <i class="bx bxs-lock-alt"></i>
+        </fieldset>
+
+        <button
+          class="bg-black rounded-full text-white py-2 hover:scale-105 transition-transform"
+        >
+          Login
+        </button>
+
+        <span class="font-normal">
+          Already have an account?
+          <button type="button" class="font-bold loginBtn">Login</button></span
+        >
+      </form>
+    </article>
+  </body>
+  <script>
+    const blackBlock = document.querySelector(".blackBlock");
+    const loginForm = document.querySelector(".loginForm");
+    const signUpForm = document.querySelector(".signUpForm");
+    const rightText = document.querySelector(".rightText");
+    const leftText = document.querySelector(".leftText");
+
+    const loginBtn = document.querySelector(".loginBtn");
+    const signUpBtn = document.querySelector(".signUpBtn");
+
+    signUpBtn.addEventListener("click", () => {
+      blackBlock.classList.remove("rotate-[57deg]", "left-[15%]");
+      blackBlock.classList.add("rotate-[-57deg]", "left-[-115%]");
+      signUpForm.classList.remove("invisible");
+      leftText.classList.remove("invisible");
+      loginForm.classList.add("animate-[hidde-left_0.5s_linear_forwards]");
+      rightText.classList.add("animate-[hidde-right_0.5s_linear_forwards]");
+      leftText.classList.add("animate-[appear-left_0.5s_linear_forwards]");
+      signUpForm.classList.add("animate-[appear-right_0.5s_linear_forwards]");
+
+      leftText.classList.remove("animate-[hidde-left_0.5s_linear_forwards]");
+      signUpForm.classList.remove("animate-[hidde-right_0.5s_linear_forwards]");
+      setTimeout(() => {
+        rightText.classList.add("invisible");
+        loginForm.classList.add("invisible");
+      }, 500);
+    });
+
+    loginBtn.addEventListener("click", () => {
+      blackBlock.classList.remove("rotate-[-57deg]", "left-[-115%]");
+      blackBlock.classList.add("rotate-[57deg]", "left-[15%]");
+
+      rightText.classList.remove("invisible");
+      loginForm.classList.remove("invisible");
+      leftText.classList.add("animate-[hidde-left_0.5s_linear_forwards]");
+      signUpForm.classList.add("animate-[hidde-right_0.5s_linear_forwards]");
+
+      loginForm.classList.remove("animate-[hidde-left_0.5s_linear_forwards]");
+      rightText.classList.remove("animate-[hidde-right_0.5s_linear_forwards]");
+
+      loginForm.classList.add("animate-[appear-left_0.5s_linear_forwards]");
+      rightText.classList.add("animate-[appear-right_0.5s_linear_forwards]");
+
+      setTimeout(() => {
+        signUpForm.classList.add("invisible");
+        leftText.classList.add("invisible");
+      }, 500);
+    });
+  </script>
+</html>
